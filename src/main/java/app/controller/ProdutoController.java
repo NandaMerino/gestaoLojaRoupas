@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Produto;
 import app.service.ProdutoService;
+import app.entity.Venda;
 
 @RestController
 

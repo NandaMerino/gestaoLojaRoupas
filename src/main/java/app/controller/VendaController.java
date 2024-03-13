@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import app.entity.Venda;
 import app.service.VendaService;
+import app.entity.Produto;
 
 @RestController
 @RequestMapping("/api/venda")
@@ -29,9 +30,9 @@ public class VendaController {
 	public ResponseEntity<String> save(@RequestBody Venda venda) {
 		try {
 			String mensagem = this.vendaService.save(venda);
-			return new ResponseEntity<String>(mensagem, HttpStatus.ACCEPTED);
+			return new ResponseEntity<String>(mensagem, HttpStatus.CREATED);
 		} catch (Exception e) {
-			return new ResponseEntity<String>("Algo deu errado ao tentar salvar a venda", HttpStatus.CREATED);
+			return new ResponseEntity<String>("Algo deu errado ao tentar salvar a venda", HttpStatus.BAD_REQUEST);
 		}
 	}
 
